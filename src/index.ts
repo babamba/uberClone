@@ -1,3 +1,16 @@
-console.log("works");
+import app from "./app";
+import { Options } from "graphql-yoga";
 
-// helmet은 보안을 위한 미들웨어 요청때마다 미들웨어가 요청을 잠시멈추고 검사 한후 위험하지않으면 요청계속진행
+const PORT : number | string = process.env.PORT || 4000; 
+const PLAYGROUND_ENDPOINT : string = "/playground";
+const GRAPHQL_ENDPOINT : string = "/graphql";
+
+const appOptions : Options = {
+     port : PORT,
+     playground : PLAYGROUND_ENDPOINT,
+     endpoint : GRAPHQL_ENDPOINT
+};
+
+const handleAppSet = () => console.log(`Listen on port ${PORT}`);
+
+app.start(appOptions, handleAppSet);
