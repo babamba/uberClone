@@ -1,21 +1,9 @@
 type Query {
   sayBye: String!
-  sayHello: Greeting!
+  sayHello(name: String!): SayHelloResponse!
 }
 
-type Greeting {
+type SayHelloResponse {
   text: String!
   error: Boolean!
 }
-
-# 일반적인 스크립트가 아니라 타입스크립트로 한다면 리턴값을 명시해줘야하는데
-# graphql 에는 그게 없다 
-# 타입스크립트와 리턴값과 graphql의 리턴값을 동기화하기위해 ..
-# "pretypes": "gql-merge --out-file ./src/schema.graphql ./src/api/**/*.graphql",
-#  를 통해 src 안에있는 .graphql 파일을 병합 한후 
-
-# "types": "graphql-to-typescript ./src/schema.graphql ./src/types/graph.d.ts"
-# 타입스크립트로 컴파일..
-# 컴파일 후에는 인터페이스들이 생기기때문에 리턴값이 명시된다 
-
-# 인터페이스가 생겼기 때문에 resolver에서 타입스크립트의 문법대로 리턴값을 정해줄 수있다.
