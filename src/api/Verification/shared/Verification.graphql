@@ -1,0 +1,16 @@
+type Verification {
+  id: Int!
+  target: String!
+  payload: String! #key랑 같은말
+  key: String!
+  used: Boolean!
+  createdAt: String!
+  updatedAt: String!
+}
+
+# v = Verification
+# v.target = phone
+# v.payload = +43412341234
+# v.key 3456
+
+# hello verify with the number 3456
