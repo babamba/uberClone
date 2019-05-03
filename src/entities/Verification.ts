@@ -16,7 +16,7 @@ const EMAIL = "EMAIL";
 class Verification extends BaseEntity {
   @PrimaryGeneratedColumn() id: number;
 
-  @Column({ type: "text", enum: [PHONE, EMAIL] })
+  @Column({ type: "enum", enum: [PHONE, EMAIL] })
   target: verificationTarget;
 
   @Column({ type: "text" })
