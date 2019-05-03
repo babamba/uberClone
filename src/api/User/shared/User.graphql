@@ -7,6 +7,7 @@ type User {
   age: Int
   password: String
   phoneNumber: String
+  fbId: String
   verifiedPhoneNumber: String
   profilePhoto: String
   fullName: String
