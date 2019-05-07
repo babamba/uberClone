@@ -21,7 +21,7 @@ type User {
   messages: [Message]
   createdAt: String!
   updatedAt: String
-  verifications: [Verification]
+  # verifications: [Verification]
 
   rideAsPassenger: [Ride]
   rideAsDriver: [Ride]
