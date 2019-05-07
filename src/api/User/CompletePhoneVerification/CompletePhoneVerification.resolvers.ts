@@ -5,6 +5,7 @@ import {
 import { Resolvers } from "../../../types/resolvers";
 import Verification from "../../../entities/Verification";
 import User from "../../../entities/User";
+import createJWT from "../../../utils/createJWT";
 
 const resolvers: Resolvers = {
   Mutation: {
@@ -40,12 +41,13 @@ const resolvers: Resolvers = {
       try {
         const user = await User.findOne({ phoneNumber });
         if (user) {
+          const token = createJWT(user.id);
           user.verifiedPhonenNumber = true;
           user.save();
           return {
             ok: true,
             error: null,
-            token: "Comingsoon"
+            token
           };
         } else {
           return {
