@@ -9,10 +9,17 @@ react / graphQL / node
 ### Public Resolvers:
 
 - [x] Sign In / Sign Up with Facebook
-- [ ] Sign In with Email
-- [ ] Start Phone Number Verification
-- [ ] Complete Phone Number Verification
-- [ ] Sign Up with Email
+- [x] Sign In with Email
+- [x] Start Phone Number Verification
+- [x] Complete Phone Number Verification
+- [x] Sign Up with Email
+
+---
+
+### Authentication
+
+- [ ] Generate JWT
+- [ ] Verify JWT
 
 ---
 

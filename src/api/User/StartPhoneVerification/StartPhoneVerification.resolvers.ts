@@ -1,8 +1,8 @@
-import { Resolvers } from "src/types/resolvers";
+import { Resolvers } from "../../../types/resolvers";
 import {
   StartPhoneVerificationMutationArgs,
   StartPhoneVerificationResponse
-} from "src/types/graph";
+} from "../../../types/graph";
 import Verification from "../../../entities/Verification";
 import { sendVerificationSMS } from "../../../utils/sendSMS";
 

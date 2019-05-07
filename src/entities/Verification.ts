@@ -8,7 +8,7 @@ import {
   BeforeInsert
   // ManyToOne
 } from "typeorm";
-import { verificationTarget } from "src/types/types";
+import { verificationTarget } from "../types/types";
 // import User from "./User";
 
 const PHONE = "PHONE";
@@ -26,6 +26,9 @@ class Verification extends BaseEntity {
 
   @Column({ type: "text" })
   key: string;
+
+  @Column({ type: "boolean", default: false })
+  verified: boolean;
 
   // @Column({ type: "boolean", default: false })
   // used: boolean;
