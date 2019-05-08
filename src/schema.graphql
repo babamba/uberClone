@@ -18,7 +18,7 @@ type Message {
 type Query {
   sayBye: String!
   sayHello(name: String!): SayHelloResponse!
-  user: User
+  GetMyProfile: GetMyProfileResponse!
 }
 
 type SayHelloResponse {
@@ -85,6 +85,12 @@ type FacebookConnectResponse {
   ok: Boolean!
   error: String
   token: String
+}
+
+type GetMyProfileResponse {
+  ok: Boolean!
+  error: String
+  user: User
 }
 
 type User {
