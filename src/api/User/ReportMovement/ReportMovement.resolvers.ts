@@ -1,32 +1,24 @@
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";
 import {
-  UpdateMyProfileMutationArgs,
-  UpdateMyProfileResponse
+  ReportMovementMutationArgs,
+  ReportMovementResponse
 } from "../../../types/graph";
 import User from "../../../entities/User";
 import cleanNullArgs from "../../../utils/cleanNullArg";
 
 const resolvers: Resolvers = {
   Mutation: {
-    UpdateMyProfile: privateResolver(
+    ReportMovement: privateResolver(
       async (
         _,
-        args: UpdateMyProfileMutationArgs,
+        args: ReportMovementMutationArgs,
         { req }
-      ): Promise<UpdateMyProfileResponse> => {
+      ): Promise<ReportMovementResponse> => {
         const user: User = req.user;
-        const notNullCheckObject: any = cleanNullArgs(args);
-
-        // user 인스턴스가 없으면 before insert update 가 실행안됨.
-        if (notNullCheckObject.password) {
-          user.password = notNullCheckObject.password;
-          await user.save();
-          delete notNullCheckObject.password;
-        }
-
+        const notNull = cleanNullArgs(args);
         try {
-          await User.update({ id: user.id }, { ...notNullCheckObject });
+          await User.update({ id: user.id }, { ...notNull });
           return {
             ok: true,
             error: null
