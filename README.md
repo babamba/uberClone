@@ -26,8 +26,8 @@ react / graphQL / node
 ### Private Resolvers:
 
 - [x] Get my Profile
-- [ ] Request Verify Email
-- [ ] Verify Email
+- [x] Request Verify Email
+- [x] Verify Email
 - [ ] Update my Profile
 - [ ] Toggle Driving Mode
 - [ ] Report Location / Orientation
