@@ -30,16 +30,16 @@ const resolvers: Resolvers = {
             verified: true
           });
 
-          console.log("phoneVerification", phoneVerification);
+          //console.log("phoneVerification", phoneVerification);
 
           if (phoneVerification) {
             const newUser = await User.create({ ...args }).save();
-            console.log("phoneVerification.newUser", newUser);
+            //console.log("phoneVerification.newUser", newUser);
             if (newUser.email) {
               const emailVerification = await Verification.create({
                 payload: newUser.email,
                 target: "EMAIL"
-              });
+              }).save();
               await sendVerificationEmail(
                 newUser.fullName,
                 emailVerification.key
